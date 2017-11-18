@@ -5,6 +5,7 @@
 html,body {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 body {
   font: normal normal 16px/30px arial,"微软雅黑";
