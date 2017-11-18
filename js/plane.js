@@ -134,9 +134,10 @@ myPlane.prototype.move = function(state){
 
   function touchEvent(event) {
     event = event || window.event;
+    var pause = document.getElementById("pause");
     var x = event.changedTouches[0].clientX;
     var y = event.changedTouches[0].clientY;
-    console.log(x+','+y);
+    // console.log(x+','+y);
     _this.position.x = x- _this.stage.offsetLeft - _this.plane.offsetWidth/2;
     _this.position.y = y- _this.stage.offsetTop - _this.plane.offsetHeight/2;
     _this.plane.style.left = _this.position.x + "px";
@@ -153,6 +154,13 @@ myPlane.prototype.move = function(state){
     if(_this.plane.offsetTop>_this.stage.offsetHeight-_this.plane.offsetHeight){
       _this.plane.style.top = _this.stage.offsetHeight-_this.plane.offsetHeight + "px";
     }
+    // 松开手指时，暂停游戏
+    if ( event.type == "touchend"){
+      console.log(event);
+      pause.style.display = "block";
+      game.pause();
+    }
+
   };
 
 
@@ -161,8 +169,9 @@ myPlane.prototype.move = function(state){
 //飞机停止跟随鼠标
 myPlane.prototype.stop = function(){
 	this.stage.onmouseover = null;
-	this.stage.onmousemove = null;
+	// this.stage.onmousemove = null;
 };
+
 //敌机
 function npcPlane(){}
 npcPlane.prototype = new Plane();

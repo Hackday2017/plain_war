@@ -199,12 +199,13 @@ game.over = function(){
 };
 //文件载入
 onload = function(){
-	var begin = document.getElementById("begin"),
-		begin_btn = document.getElementById("begin_btn"),
-		pause = document.getElementById("pause"),
-		pause_btn = document.getElementById("pause_btn"),
-		again_btn = document.getElementById("again_btn"),
-		stage = document.getElementById("container");
+	var begin     = document.getElementById("begin"),
+		  begin_btn = document.getElementById("begin_btn"),
+		  pause     = document.getElementById("pause"),
+		  pause_btn = document.getElementById("pause_btn"),
+		  again_btn = document.getElementById("again_btn"),
+		  stage     = document.getElementById("container");
+
 	begin_btn.onclick = function(e){
 		var E = e||event;
 		begin.style.display = "none";
@@ -212,18 +213,22 @@ onload = function(){
 		E.stopPropagation();
 		E.cancelBubble = true;
 	};
+
 	begin.onclick = function(e){
 		var E = e||event;
 		E.stopPropagation();
-		E.cancelBubble = true;	
+		E.cancelBubble = true;
 	};
-	stage.onclick = function(e){
-		var E = e||event;
-		pause.style.display = "block";
-		game.pause();
-		E.stopPropagation();
-		E.cancelBubble = true;			
-	};
+
+	// 点击屏幕暂停
+	// stage.onclick = function(e){
+	// 	var E = e||event;
+	// 	pause.style.display = "block";
+	// 	game.pause();
+	// 	E.stopPropagation();
+	// 	E.cancelBubble = true;
+	// };
+
 	pause_btn.onclick = function(e){
 		var E = e||event;	
 		game.begin();
@@ -234,8 +239,6 @@ onload = function(){
 	again_btn.onclick = function(){
 		window.location.reload();
 	};
-	
-	
 };
 
 	//碰撞检测

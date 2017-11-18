@@ -6,8 +6,10 @@ html,body {
   height: 100%;
   width: 100%;
 }
-body{font: normal normal 16px/30px arial,"微软雅黑"; }
-#container{
+body {
+  font: normal normal 16px/30px arial,"微软雅黑";
+}
+#container {
   text-align: center;
   width: 100%;
   height: 100%;
@@ -16,8 +18,18 @@ body{font: normal normal 16px/30px arial,"微软雅黑"; }
   position: relative;
   overflow: hidden;
 }
-.myPlane{width: 66px;height: 80px;background:url(../img/myPlane.gif); position: absolute; z-index: 10; bottom: 0; left: 45%;}
-.banglane{background:url(../img/myPlaneBang.gif); }
+.myPlane {
+  width: 66px;
+  height: 80px;
+  background:url(../img/myPlane.gif);
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 45%;
+}
+.banglane {
+  background:url(../img/myPlaneBang.gif);
+}
 .npc1{width: 34px;height: 24px;background:url(../img/npc1.png); position: absolute; top: 0; left: 45%;}
 .npc2{width: 46px;height: 60px;background:url(../img/npc2.png); position: absolute; top: 0; left: 45%;}
 .npc3{width: 110px;height: 164px;background:url(../img/npc3.png); position: absolute; top: 0; left: 45%;}
@@ -33,7 +45,6 @@ body{font: normal normal 16px/30px arial,"微软雅黑"; }
 
 #score{position: absolute; left:0; top: 0; padding: 0 10px;}
 
-
 #begin_btn{
   height: 40px;
   width: 40%;
@@ -46,7 +57,7 @@ body{font: normal normal 16px/30px arial,"微软雅黑"; }
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,50%);
 }
 #again_btn{
   height: 30px;
@@ -72,7 +83,7 @@ body{font: normal normal 16px/30px arial,"微软雅黑"; }
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,50%);
 }
 #begin{
   position: absolute;
