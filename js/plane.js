@@ -2,6 +2,8 @@
  * @author liege
  * date:2014-6-10 18:10:42
  */
+
+
 //飞机类
 function Plane(){
 	this.plane = null;
@@ -90,37 +92,72 @@ myPlane.prototype.fire = function(){
 	//子弹飞行
 	_this.bullets.fire();	
 };
+
 //飞机跟随鼠标移动
 myPlane.prototype.move = function(state){
-	var _this = this;
-	_this.stage = document.getElementById("container");
-	 //飞机跟随鼠标移动
-	_this.stage.onmouseover = function(e){
-		_this.stage.onmousemove = function(e){
-			var E = e||event;
-			_this.position.x = E.clientX- _this.stage.offsetLeft - _this.plane.offsetWidth/2;
-			_this.position.y = E.clientY- _this.stage.offsetTop - _this.plane.offsetHeight/2;
-			_this.plane.style.left = _this.position.x + "px";
-			_this.plane.style.top = _this.position.y + "px";		
-			if(_this.plane.offsetLeft>_this.stage.offsetWidth-_this.plane.offsetWidth){
-				_this.plane.style.left = _this.stage.offsetWidth-_this.plane.offsetWidth + "px";
-			}
-			if(_this.plane.offsetLeft<0){
-				_this.plane.style.left = 0;
-			}
-			if(_this.plane.offsetTop<0){
-				_this.plane.style.top = 0;
-			}
-			if(_this.plane.offsetTop>_this.stage.offsetHeight-_this.plane.offsetHeight){
-				_this.plane.style.top = _this.stage.offsetHeight-_this.plane.offsetHeight + "px";
-			}
-		};
-		_this.stage.onmouseout = function(){
-			_this.stage.onmousemove = null;
-		};
-	};
+  var _this = this;
+  _this.stage = document.getElementById("container");
+
+  //飞机跟随鼠标移动
+  // _this.stage.onmouseover = function(e) {
+  //   _this.stage.onmousemove = function(e){
+  //     var E = e||event;
+  //     _this.position.x = E.clientX- _this.stage.offsetLeft - _this.plane.offsetWidth/2;
+  //     _this.position.y = E.clientY- _this.stage.offsetTop - _this.plane.offsetHeight/2;
+  //     _this.plane.style.left = _this.position.x + "px";
+  //     _this.plane.style.top = _this.position.y + "px";
+  //     if(_this.plane.offsetLeft>_this.stage.offsetWidth-_this.plane.offsetWidth){
+  //       _this.plane.style.left = _this.stage.offsetWidth-_this.plane.offsetWidth + "px";
+  //     }
+  //     if(_this.plane.offsetLeft<0){
+  //       _this.plane.style.left = 0;
+  //     }
+  //     if(_this.plane.offsetTop<0){
+  //       _this.plane.style.top = 0;
+  //     }
+  //     if(_this.plane.offsetTop>_this.stage.offsetHeight-_this.plane.offsetHeight){
+  //       _this.plane.style.top = _this.stage.offsetHeight-_this.plane.offsetHeight + "px";
+  //     }
+  //   };
+  //   _this.stage.onmouseout = function(){
+  //     _this.stage.onmousemove = null;
+  //   };
+  // };
+
+  // 飞机跟随手指滑动
+  if (document.getElementsByClassName('myPlane')[0]){
+    document.getElementsByClassName('myPlane')[0].addEventListener('touchstart', touchEvent, false);
+    document.getElementsByClassName('myPlane')[0].addEventListener('touchmove', touchEvent, false);
+    document.getElementsByClassName('myPlane')[0].addEventListener('touchend', touchEvent, false);
+  }
+
+
+  function touchEvent(event) {
+    event = event || window.event;
+    var x = event.changedTouches[0].clientX;
+    var y = event.changedTouches[0].clientY;
+    console.log(x+','+y);
+    _this.position.x = x- _this.stage.offsetLeft - _this.plane.offsetWidth/2;
+    _this.position.y = y- _this.stage.offsetTop - _this.plane.offsetHeight/2;
+    _this.plane.style.left = _this.position.x + "px";
+    _this.plane.style.top = _this.position.y + "px";
+    if(_this.plane.offsetLeft>_this.stage.offsetWidth-_this.plane.offsetWidth){
+      _this.plane.style.left = _this.stage.offsetWidth-_this.plane.offsetWidth + "px";
+    }
+    if(_this.plane.offsetLeft<0){
+      _this.plane.style.left = 0;
+    }
+    if(_this.plane.offsetTop<0){
+      _this.plane.style.top = 0;
+    }
+    if(_this.plane.offsetTop>_this.stage.offsetHeight-_this.plane.offsetHeight){
+      _this.plane.style.top = _this.stage.offsetHeight-_this.plane.offsetHeight + "px";
+    }
+  };
+
 
 };
+
 //飞机停止跟随鼠标
 myPlane.prototype.stop = function(){
 	this.stage.onmouseover = null;

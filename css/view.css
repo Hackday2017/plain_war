@@ -1,6 +1,21 @@
-*{margin: 0;padding: 0;}
+* {
+  margin: 0;
+  padding: 0;
+}
+html,body {
+  height: 100%;
+  width: 100%;
+}
 body{font: normal normal 16px/30px arial,"微软雅黑"; }
-#container{text-align: center; width: 320px; height: 568px;background: url(../img/background_1.png) repeat-y 0 0; position: relative; overflow: hidden; margin: 10px auto;}
+#container{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background: url(../img/background_1.png);
+  background-size: 100% 100%;
+  position: relative;
+  overflow: hidden;
+}
 .myPlane{width: 66px;height: 80px;background:url(../img/myPlane.gif); position: absolute; z-index: 10; bottom: 0; left: 45%;}
 .banglane{background:url(../img/myPlaneBang.gif); }
 .npc1{width: 34px;height: 24px;background:url(../img/npc1.png); position: absolute; top: 0; left: 45%;}
@@ -19,10 +34,56 @@ body{font: normal normal 16px/30px arial,"微软雅黑"; }
 #score{position: absolute; left:0; top: 0; padding: 0 10px;}
 
 
-#container input{ background: none; border:1px solid #333; border-radius: 15px; padding: 6px 30px; outline: none; margin-top: 100%;}
-#begin{ position: absolute; background: url(../img/begin.png) no-repeat 0 0; width: 100%; height: 100%; z-index: 999;}
+#begin_btn{
+  height: 40px;
+  width: 40%;
+  font-size: 16px;
+  background: none;
+  border:1px solid #333;
+  border-radius: 15px;
+  padding: 6px 30px;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#again_btn{
+  height: 30px;
+  width: 80% !important;
+  max-width: 120px;
+  font-size: 16px;
+  background: none;
+  border:1px solid #333;
+  border-radius: 15px;
+  /*padding: 6px 30px;*/
+  margin-bottom: 6px;
+  outline: none;
+}
+#pause_btn{
+  height: 40px;
+  width: 40%;
+  font-size: 16px;
+  background: none;
+  border:1px solid #333;
+  border-radius: 15px;
+  padding: 6px 30px;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#begin{
+  position: absolute;
+  background: url(../img/begin.png) no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
 #pause{	width: 100%; height: 100%; z-index: 99; position: relative; text-align: center; display: none;}
-#info{	width: 45%; height:25%; background: #ccc; text-align: center; display: none; border:1px solid #333; border-radius: 5px;
+#info{	width: 45%;  background: #ccc; text-align: center; display: none; border:1px solid #333; border-radius: 5px;
 margin: 66% auto 0;
 position: relative; z-index: 99;
 }
