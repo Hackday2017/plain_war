@@ -6,7 +6,7 @@ http://localhost/plane_war/public/plane/login/adduser
 
 返回apireturn
 
-登录接口：post方法，仅需cardno字段
+登录接口：post方法，需cardno字段，score字段可以有
 
 http://localhost/plane_war/public/plane/login/oklogin
 

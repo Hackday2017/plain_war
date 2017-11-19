@@ -58,7 +58,20 @@ class Login extends Base
     {
         $postDate = $request->post();
         $cardno = $postDate['cardno'];
+        $score = empty($postDate['score']) ? 0 : $postDate['score'];
         $user = new UserModel();
+        // score值不为0则上传
+        if ($score != 0) {
+            $info = $user->userinfo($cardno);
+            if ($score > $info['data']['score']) {
+                $data = array(
+                    'score' => $score,
+                    'latest' => date("Y-m-d H:i:s", time())
+                );
+                $result = $user->updatescore($cardno, $data);
+            }
+        }
+
         $rel = $user->userinfo($cardno);
         Session::set('plane_user', $rel['data']);
         return $this->apireturn($rel['code'], $rel['msg'], $rel['data'], 200);

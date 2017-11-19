@@ -45,17 +45,20 @@ class Index extends Login
         // TODO 对传入信息进行加密
         $postData = $request->post();
         $score = $postData['score'];
-        $user = new UserModel();
         $plane_user = Session::get('plane_user');
         $cardno = $plane_user['cardno'];
-
-//        $score = 2;
-        $data = array(
-            'score' => $score,
-            'latest' => date("Y-m-d H:i:s", time())
-        );
-        $rel = $user->updatescore($cardno, $data);
-        return $this->apireturn($rel['code'], $rel['msg'], $rel['data'], 200);
+        $user = new UserModel();
+        // score值大于数据库则更新
+        $info = $user->userinfo($cardno);
+        if ($score > $info['data']['score']) {
+            $data = array(
+                'score' => $score,
+                'latest' => date("Y-m-d H:i:s", time())
+            );
+            $rel = $user->updatescore($cardno, $data);
+            return $this->apireturn($rel['code'], $rel['msg'], $rel['data'], 200);
+        }
+        return $this->apireturn(0, '', '', 200);
     }
 
 
