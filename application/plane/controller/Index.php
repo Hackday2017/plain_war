@@ -45,6 +45,7 @@ class Index extends Login
         // TODO 对传入信息进行加密
         $postData = $request->post();
         $score = $postData['score'];
+//        $score = 3;
         $plane_user = Session::get('plane_user');
         $cardno = $plane_user['cardno'];
         $user = new UserModel();
