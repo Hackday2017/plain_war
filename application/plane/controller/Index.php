@@ -43,13 +43,13 @@ class Index extends Login
     public function updatescore(Request $request)
     {
         // TODO 对传入信息进行加密
-//        $postData = $request->post();
-//        $score = $postData['score'];
+        $postData = $request->post();
+        $score = $postData['score'];
         $user = new UserModel();
         $plane_user = Session::get('plane_user');
         $cardno = $plane_user['cardno'];
 
-        $score = 2;
+//        $score = 2;
         $data = array(
             'score' => $score,
             'latest' => date("Y-m-d H:i:s", time())
