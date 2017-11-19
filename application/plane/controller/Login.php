@@ -19,12 +19,12 @@ class Login extends Base
         parent::__construct();
     }
 
-    public function register()
+    public function index()
     {
         return $this->fetch();
     }
 
-    public function login()
+    public function register()
     {
         return $this->fetch();
     }
@@ -32,12 +32,12 @@ class Login extends Base
     public function adduser(Request $request)
     {
         $postDate = $request->post();
-
+//        var_dump($postDate);exit;
         $cardno = $postDate['cardno'];
         $name = $postDate['name'];
-        $gender = $postDate['gender'];
-        $school = $postDate['school'];
-        $major = $postDate['major'];
+        $gender = empty($postDate['gender']) ? 0 : $postDate['gender'];
+        $school = empty($postDate['school']) ? '武小理' :$postDate['school'];
+        $major = empty($postDate['major']) ? '' : $postDate['major'];
         $create = date("Y-m-d H:i:s", time());
 
         $userinfo = array(
@@ -60,6 +60,7 @@ class Login extends Base
         $cardno = $postDate['cardno'];
         $user = new UserModel();
         $rel = $user->userinfo($cardno);
+        Session::set('plane_user', $rel['data']);
         return $this->apireturn($rel['code'], $rel['msg'], $rel['data'], 200);
     }
 

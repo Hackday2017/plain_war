@@ -8,7 +8,7 @@ use think\Request;
 use think\Db;
 use think\Session;
 
-class Index extends Base
+class Index extends Login
 {
     // TODO 考虑缓存机制
     public function index()
@@ -32,15 +32,29 @@ class Index extends Base
         return $this->apireturn(0, '', $highinfo, 200);
     }
 
+    public function getuserinfo()
+    {
+        $user = new UserModel();
+        $plane_user = Session::get('plane_user');
+        var_dump($plane_user);
 
-    public function updatescore()
+    }
+
+    public function updatescore(Request $request)
     {
         // TODO 对传入信息进行加密
+//        $postData = $request->post();
+//        $score = $postData['score'];
         $user = new UserModel();
         $plane_user = Session::get('plane_user');
         $cardno = $plane_user['cardno'];
-        $score = 1;
-        $rel = $user->updatescore($cardno, $score);
+
+        $score = 2;
+        $data = array(
+            'score' => $score,
+            'latest' => date("Y-m-d H:i:s", time())
+        );
+        $rel = $user->updatescore($cardno, $data);
         return $this->apireturn($rel['code'], $rel['msg'], $rel['data'], 200);
     }
 
