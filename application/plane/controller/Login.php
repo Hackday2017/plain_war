@@ -29,6 +29,11 @@ class Login extends Base
         return $this->fetch();
     }
 
+    /**
+     * 注册用户函数
+     * @param Request $request
+     * @return \think\response\Json
+     */
     public function adduser(Request $request)
     {
         $postDate = $request->post();
@@ -54,6 +59,11 @@ class Login extends Base
         return $this->apireturn($rel['code'], $rel['msg'], $rel['data'], 200);
     }
 
+    /**
+     * 登录函数
+     * @param Request $request
+     * @return \think\response\Json
+     */
     public function oklogin(Request $request)
     {
         $postDate = $request->post();
@@ -83,6 +93,10 @@ class Login extends Base
     }
 
 
+    /**
+     * 理工身份证连入
+     * @return mixed
+     */
     public function msign() {
         // 从掌理登陆时记录卡号和姓名
         $info = json_decode(urldecode($_SERVER['HTTP_M_SIGN']), true);

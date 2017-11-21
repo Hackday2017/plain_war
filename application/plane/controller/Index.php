@@ -22,8 +22,11 @@ class Index extends Login
         return $this->fetch();
     }
 
-    
 
+    /**
+     * 获取高分榜数据
+     * @return \think\response\Json
+     */
     public function gethighscore()
     {
         $user = new UserModel();
@@ -32,14 +35,46 @@ class Index extends Login
         return $this->apireturn(0, '', $highinfo, 200);
     }
 
-    public function getuserinfo()
+
+    /**
+     * 获取登录用户的信息和排名
+     * @return \think\response\Json
+     */
+    public function getmyrank()
     {
         $user = new UserModel();
         $plane_user = Session::get('plane_user');
-        var_dump($plane_user);
-
+        $cardno = $plane_user['cardno'];
+        $max_rank = 10;
+        $info = $user->highscore(0, $max_rank);
+        if ($info['code'] != 0) {
+            return $this->apireturn($info['code'], $info['msg'], $info['data'], 200);
+        }
+        $cardno_score = array();
+        foreach ($info['data'] as $value => $item) {
+            $cardno_score[0][$value] = $info['data'][$value]['cardno'];
+            $cardno_score[1][$value] = $info['data'][$value]['score'];
+        }
+        $result = array_search($cardno, $cardno_score[0]);
+        if ($result != false) {
+            $realrank = $result+1;
+            $myrank = "$realrank";
+        } else {
+            $myrank = ">$max_rank";
+        }
+        $rel = $user->userinfo($cardno);
+        if ($rel['code'] == 0) {
+            return $this->apireturn($rel['code'], $rel['msg'], array('userinfo' => $rel['data'], 'userrank' => $myrank), 200);
+        } else {
+            return $this->apireturn($rel['code'], $rel['msg'], array('userinfo' => $rel['data'], 'userrank' => 'undefine'), 200);
+        }
     }
 
+    /**
+     * 更新最高分数
+     * @param Request $request
+     * @return \think\response\Json
+     */
     public function updatescore(Request $request)
     {
         // TODO 对传入信息进行加密
