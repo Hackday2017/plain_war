@@ -97,7 +97,4 @@ class Index extends Login
         return $this->apireturn(0, '', '', 200);
     }
 
-
-
-
 }
