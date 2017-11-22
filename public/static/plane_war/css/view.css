@@ -47,7 +47,7 @@ body {
 .bang3{background:url(../img/plane3.gif);  background-size: 100% 100%}
 /*.bang4{background:url(../img/plane4.gif); }*/
 
-#score{
+#score {
   position: absolute;
   left:0;
   top: 0;
@@ -55,10 +55,10 @@ body {
   color: red;
 }
 
-#begin_btn{
+#begin_btn {
   margin-left: 30%;
   width: 40%;
-  top: 59%;
+  top: 55%;
   font-size: 22px;
   border: none;
   background: none;
@@ -66,10 +66,10 @@ body {
   position: absolute;
   color: #0aff23;
 }
-#score_btn{
+#score_btn {
   margin-left: 30%;
   width: 40%;
-  top: 76%;
+  top: 67%;
   font-size: 22px;
   border: none;
   background: none;
@@ -77,7 +77,19 @@ body {
   position: absolute;
   color: yellow;
 }
-#again_btn{
+#login_btn {
+  margin-left: 30%;
+  width: 40%;
+  top: 80%;
+  font-size: 22px;
+  border: none;
+  background: none;
+  outline: none;
+  position: absolute;
+  color: black;
+  /*display: none;*/
+}
+#again_btn {
   height: 30px;
   width: 80% !important;
   max-width: 120px;
@@ -89,7 +101,7 @@ body {
   outline: none;
   color: yellow;
 }
-#pause_btn{
+#pause_btn {
   height: 40px;
   width: 40%;
   font-size: 22px;

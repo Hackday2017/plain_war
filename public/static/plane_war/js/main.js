@@ -199,16 +199,26 @@ game.over = function(){
 };
 //文件载入
 onload = function(){
-	var begin     = document.getElementById("begin"),
+	var begin  = document.getElementById("begin"),
 		  begin_btn = document.getElementById("begin_btn"),
-		  pause     = document.getElementById("pause"),
+		  pause  = document.getElementById("pause"),
 		  pause_btn = document.getElementById("pause_btn"),
 		  again_btn = document.getElementById("again_btn"),
-		  stage     = document.getElementById("container"),
-	    score_btn = document.getElementById("score_btn");
+		  stage  = document.getElementById("container"),
+	  score_btn = document.getElementById("score_btn"),
+			login_btn = document.getElementById("login_btn");
+
+  if (user.isLogin){
+  login_btn.style.display = "none";
+  };
+
+  login_btn.onclick = function () {
+  window.location.href = "../plane/login/register.html"
+  };
+
 
 	score_btn.onclick = function () {
-    window.location.href = '../plane/index/highscore.html';
+  window.location.href = '../plane/index/highscore.html';
   }
 
 	begin_btn.onclick = function(e){

@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>注册页</title>
-    <link rel="stylesheet" href="__CSS__/view.css" />
-    <script src="__JS__/plane.js"></script>
-    <script src="__JS__/bullet.js"></script>
-    <script src="__JS__/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>注册页</title>
+  <link rel="stylesheet" href="__CSS__/login.css" />
+  <script src="__JS__/user.js"></script>
+  <script src="__JS__/login.js"></script>
+  <script src="__JS__/jquery-1.10.1.min.js"></script>
 </head>
 <body>
-<form action="__PLANE__/login/adduser" method="post">
-    卡号： <input name="cardno">*<br/>
-    姓名： <input name="name">*<br/>
-    专业： <input name="major"><br/>
-    性别： <label ><input name="gender" type="radio" checked="true" value="1">男&nbsp;<input name="gender" type="radio" value="2">女</label><br/>
-    学校： <label ><input name="school" type="radio" value="武小理">武小理&nbsp;<input name="school" type="radio" value="华小师">华小师</label><br/>
-    <button type="submit">submit</button>
-</form>
+<div class="wrapper">
+  <div class="title">
+    <div class="login-text" id="login-text">登录</div>
+    <div class="sign">  /  </div>
+    <div class="register-text" id="register-text">注册</div>
+  </div>
+  <div class="form" id="register-form">
+    <form action="__PLANE__/login/adduser" method="post">
+      卡号： <input name="cardno">*<br/>
+      姓名： <input name="name">*<br/>
+      专业： <input name="major"><br/>
+      性别： <label ><input name="gender" type="radio" checked="true" value="1">男&nbsp;<input name="gender" type="radio" value="2">女</label><br/>
+      学校： <label ><input name="school" type="radio" value="武小理" checked="true">武小理&nbsp;<input name="school" type="radio" value="华小师">华小师</label><br/>
+      <button type="submit">submit</button>
+    </form>
+  </div>
+  <div class="form" id="login-form">
+    <form action="__PLANE__/login/oklogin" method="post">
+      卡号： <input name="cardno"><br/>
+      <!--姓名： <input name="name"><br/>-->
+      <button type="submit">submit</button>
+    </form>
+  </div>
+</div>
 </body>
 </html>
