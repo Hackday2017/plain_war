@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "RTWSShangGoG0v1";
+  src: url("../fonts/RTWSShangGoG0v1-Regular.eot"); /* IE9 */
+  src: url("../fonts/RTWSShangGoG0v1-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("../fonts/RTWSShangGoG0v1-Regular.woff") format("woff"), /* Chrome, Firefox */
+  url("../fonts/RTWSShangGoG0v1-Regular.ttf") format("truetype"), /* Chrome, Firefox, Opera, Safari, Android, iOS 4.2+ */
+  url("../fonts/RTWSShangGoG0v1-Regular.svg#RTWSShangGoG0v1-Regular") format("svg"); /* iOS 4.1- */
+}
+
+@font-face {
+  font-family: "DFWaWaSC W5";
+  src: url("../fonts/DFWaWaSCW5.eot"); /* IE9 */
+  src: url("../fonts/DFWaWaSCW5.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("../fonts/DFWaWaSCW5.woff") format("woff"), /* Chrome, Firefox */
+  url("../fonts/DFWaWaSCW5.ttf") format("truetype"), /* Chrome, Firefox, Opera, Safari, Android, iOS 4.2+ */
+  url("../fonts/DFWaWaSCW5.svg#DFWaWaSCW5") format("svg"); /* iOS 4.1- */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html,body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.title p {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: "RTWSShangGoG0v1";
+}
+.table {
+  width: 95%;
+  border: solid 1px black ;
+  align: center;
+  margin: 0 auto;
+  border-collapse:collapse;
+}
+tr,td {
+  text-align: center;
+}
+.table-header > td {
+  font-size: 15px;
+  font-family: "DFWaWaSC W5";
+  border: solid 1px black ;
+}
+.data > td {
+  padding: 3px;
+  font-size: 13px;
+  font-family: "微软雅黑 Light";
+  border: solid 1px black ;
+}

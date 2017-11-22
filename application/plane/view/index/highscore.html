@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>高分榜</title>
-    <link rel="stylesheet" href="__CSS__/view.css" />
-    <script src="__JS__/plane.js"></script>
-    <script src="__JS__/bullet.js"></script>
-    <script src="__JS__/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>高分榜</title>
+  <link rel="stylesheet" href="__CSS__/highscore.css" />
+  <script src="__JS__/jquery-1.10.1.min.js"></script>
+  <script src="__JS__/highscore.js"></script>
 </head>
 <body>
-
+<div class="wrapper">
+  <div class="title">
+    <p>高分记录</p>
+  </div>
+  <table class="table" id="table">
+    <thead>
+    <tr class="table-header">
+      <td width="17%" class="td_top">卡号</td>
+      <td width="15%" class="td_top">姓名</td>
+      <td width="14%" class="td_top">分数</td>
+      <td width="18%" class="td_top">学校</td>
+      <td width="40%" class="td_top">学院</td>
+    </tr>
+    </thead>
+    <tbody>
+      <tr class="data">
+        <td class="item cardNo"></td>
+        <td class="item name"></td>
+        <td class="item score"></td>
+        <td class="item school"></td>
+        <td class="item major"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </body>
 </html>

@@ -204,7 +204,12 @@ onload = function(){
 		  pause     = document.getElementById("pause"),
 		  pause_btn = document.getElementById("pause_btn"),
 		  again_btn = document.getElementById("again_btn"),
-		  stage     = document.getElementById("container");
+		  stage     = document.getElementById("container"),
+	    score_btn = document.getElementById("score_btn");
+
+	score_btn.onclick = function () {
+    window.location.href = '../plane/index/highscore.html';
+  }
 
 	begin_btn.onclick = function(e){
 		var E = e||event;
@@ -219,15 +224,6 @@ onload = function(){
 		E.stopPropagation();
 		E.cancelBubble = true;
 	};
-
-	// 点击屏幕暂停
-	// stage.onclick = function(e){
-	// 	var E = e||event;
-	// 	pause.style.display = "block";
-	// 	game.pause();
-	// 	E.stopPropagation();
-	// 	E.cancelBubble = true;
-	// };
 
 	pause_btn.onclick = function(e){
 		var E = e||event;	
