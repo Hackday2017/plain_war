@@ -234,8 +234,10 @@ onload = function(){
 		game.begin();
 		pause.style.display = "none";
 		E.stopPropagation();
-		E.cancelBubble = true;		
+		E.cancelBubble = true;
+		planeStatus.isPause = !planeStatus.isPause;
 	};
+
 	again_btn.onclick = function(){
 		window.location.reload();
 	};

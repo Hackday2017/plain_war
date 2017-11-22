@@ -47,10 +47,16 @@ body {
 .bang3{background:url(../img/plane3.gif);  background-size: 100% 100%}
 /*.bang4{background:url(../img/plane4.gif); }*/
 
-#score{position: absolute; left:0; top: 0; padding: 0 10px;}
+#score{
+  position: absolute;
+  left:0;
+  top: 0;
+  padding: 0 10px;
+  color: red;
+}
 
 #begin_btn{
-  margin-left: 33%;
+  margin-left: 30%;
   width: 40%;
   top: 59%;
   font-size: 22px;
@@ -61,9 +67,9 @@ body {
   color: #0aff23;
 }
 #score_btn{
-  margin-left: 33%;
+  margin-left: 30%;
   width: 40%;
-  top: 75%;
+  top: 76%;
   font-size: 22px;
   border: none;
   background: none;
