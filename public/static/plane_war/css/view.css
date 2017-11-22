@@ -32,6 +32,7 @@ body {
 }
 .banglane {
   background:url(../img/myPlaneBang.gif);
+  background-size: 100% 100%;
 }
 .npc1{width: 34px;height: 24px;background:url(../img/npc1.png) no-repeat; background-size: 100% 100%; position: absolute; top: 0; left: 45%;}
 .npc2{width: 46px;height: 60px;background:url(../img/npc2.png) no-repeat; background-size: 100% 100%;  position: absolute; top: 0; left: 45%;}
@@ -41,10 +42,10 @@ body {
 #container i.lv2{position: absolute; width: 32px; height: 39px; background:url(../img/bullet2.png) no-repeat; background-size: 100% 100%; }
 #container i.lv3{position: absolute; width: 66px; height: 62px; background:url(../img/bullet3.png) no-repeat; background-size: 100% 100%; }
 #container span{display: block;position: absolute;}
-.bang1{ background:url(../img/plane1.gif); }
-.bang2{background:url(../img/plane2.gif);  }
-.bang3{background:url(../img/plane3.gif);  }
-.bang4{background:url(../img/plane4.gif); }
+.bang1{ background:url(../img/plane1.gif); background-size: 100% 100%}
+.bang2{background:url(../img/plane2.gif);  background-size: 100% 100%}
+.bang3{background:url(../img/plane3.gif);  background-size: 100% 100%}
+/*.bang4{background:url(../img/plane4.gif); }*/
 
 #score{position: absolute; left:0; top: 0; padding: 0 10px;}
 
