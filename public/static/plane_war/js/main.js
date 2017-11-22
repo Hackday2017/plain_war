@@ -205,20 +205,24 @@ onload = function(){
 		  pause_btn = document.getElementById("pause_btn"),
 		  again_btn = document.getElementById("again_btn"),
 		  stage  = document.getElementById("container"),
-	  score_btn = document.getElementById("score_btn"),
+	    score_btn = document.getElementById("score_btn"),
 			login_btn = document.getElementById("login_btn");
 
-  if (user.isLogin){
-  login_btn.style.display = "none";
-  };
+  console.log(document.cookie)
+  if (getCookie("isLogin") == "true"){
+    login_btn.style.display = "none";
+  } else {
+    login_btn.style.display = "block";
+  }
 
+  // 跳转到注册页面
   login_btn.onclick = function () {
-  window.location.href = "../plane/login/register.html"
+    window.location.href = "http://localhost/plane_war/public/plane/index/register.html";
   };
 
-
+  // 跳转到高分榜页面
 	score_btn.onclick = function () {
-  window.location.href = '../plane/index/highscore.html';
+    window.location.href = 'http://localhost/plane_war/public/plane/index/highscore.html';
   }
 
 	begin_btn.onclick = function(e){

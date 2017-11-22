@@ -30,3 +30,11 @@ html , body {
 .title, #login-form, #register-form {
   display: none;
 }
+.subbtn {
+  padding: 2px;
+  text-align: center;
+  height: 25px;
+  width: 30%;
+  margin: 12px auto;
+  border: 1px solid black;
+}

@@ -1,6 +1,6 @@
 /**
  * Created by zhumengyue at 2017/11/22 16:04
- * description :
+ * description : 临时保存当前用户的信息
  */
 var user = {
   name : '',
@@ -8,6 +8,6 @@ var user = {
   gender : '',
   major : '',
   school : '',
-  isLogin : false,
-  nowIsLogin : false,
+  isLogin : '',
+  nowIsLogin : '',
 }

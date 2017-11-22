@@ -7,31 +7,33 @@
   <link rel="stylesheet" href="__CSS__/login.css" />
   <script src="__JS__/user.js"></script>
   <script src="__JS__/login.js"></script>
+  <script src="__JS__/cookie.js"></script>
   <script src="__JS__/jquery-1.10.1.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
+  <div class="back" style="position: absolute;top: 1px;left: 2px">返回</div>
   <div class="title">
     <div class="login-text" id="login-text">登录</div>
     <div class="sign">  /  </div>
     <div class="register-text" id="register-text">注册</div>
   </div>
-  <div class="form" id="register-form">
-    <form action="__PLANE__/login/adduser" method="post">
+  <div class="form" id="register-form" >
+    <form>
       卡号： <input name="cardno">*<br/>
       姓名： <input name="name">*<br/>
       专业： <input name="major"><br/>
-      性别： <label ><input name="gender" type="radio" checked="true" value="1">男&nbsp;<input name="gender" type="radio" value="2">女</label><br/>
-      学校： <label ><input name="school" type="radio" value="武小理" checked="true">武小理&nbsp;<input name="school" type="radio" value="华小师">华小师</label><br/>
-      <button type="submit">submit</button>
+      性别： <label><input name="gender" type="radio" checked="true" value="1">男&nbsp;<input name="gender" type="radio" value="2">女</label><br/>
+      学校： <label><input name="school" type="radio" value="武小理" checked="true">武小理&nbsp;<input name="school" type="radio" value="华小师">华小师</label><br/>
     </form>
+    <div class="register_submit subbtn" onclick=register()>注册</div>
   </div>
   <div class="form" id="login-form">
     <form action="__PLANE__/login/oklogin" method="post">
       卡号： <input name="cardno"><br/>
-      <!--姓名： <input name="name"><br/>-->
-      <button type="submit">submit</button>
+      <!--<button type="submit">submit</button>-->
     </form>
+    <div class="login_submit subbtn" onclick=login()>登录</div>
   </div>
 </div>
 </body>
