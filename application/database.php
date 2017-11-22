@@ -17,9 +17,9 @@ return [
     // 数据库名
     'database'        => 'hack_plane',
     // 用户名
-    'username'        => 'root',
+    'username'        => 'zmy',
     // 密码
-    'password'        => '',//LJY5zQajrcU3zjYv
+    'password'        => '123',//LJY5zQajrcU3zjYv
     // 端口
     'hostport'        => '3306',
 //    // 数据库类型
