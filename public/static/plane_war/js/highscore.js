@@ -51,23 +51,4 @@ $(function () {
       }
     }
   })
-  
-  function getrank(form) {
-    $.ajax({
-      url : "http://localhost/plane_war/public/plane/index/getmyrank",
-      type : "POST",
-      data: form,
-      processData:false,
-      contentType:false,
-      success:function(data){
-        console.log(data);
-        if (data.data) {
-          setCookie("userrank",data.data.userrank); // 设置排名
-          // console.log(document.cookie)
-        }
-      }
-    })
-  }
-
-
 })

@@ -167,6 +167,13 @@ game.run = function(){
 };
 //游戏开始，初始化我机，场景运动开始
 game.begin = function(){
+	if (getCookie("isLogin") == "false"){
+	  var form = new FormData();
+	  form.append("cardno",getCookie("cardno"));
+	  console.log(form);
+	  setCookie("nowscore",0);
+	  setCookie("userrank",getRank(form))
+  }
 	var _this =this;
 	if(!_this.myPlane){
 	_this.initMyPlane();
@@ -197,12 +204,9 @@ game.over = function(){
         update_score = document.getElementById("update_score");
 		setCookie("nowscore",_this.scores*100); // 设置当前分数
     // 先判断是否登录
-    console.log("isLogin:"+getCookie("isLogin"))
-    console.log("nowscore:"+getCookie("nowscore"))
-    console.log("maxscore:"+getCookie("maxscore"))
     if (getCookie("isLogin") == "false") {
       update_score.value = "登录并上传分数"
-    } else if (getCookie("nowscore")<getCookie("maxscore")) { // 判断是否出现高分
+    } else if (parseInt(getCookie("nowscore")) < parseInt(getCookie("maxscore"))) { // 判断是否出现高分
       update_score.style.display = "none"
     } else {  // 上传
       console.log("已登录并且高分")
@@ -241,6 +245,7 @@ onload = function(){
     window.location.href = 'http://localhost/plane_war/public/plane/index/highscore.html';
   };
 
+	// 上传高分
   updatescore_btn.onclick = function () {
       var score = getCookie("nowscore");
       var form = new FormData();
