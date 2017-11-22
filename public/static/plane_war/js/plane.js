@@ -43,7 +43,7 @@ Plane.prototype.bang = function(){
 	bangObj.style.height = h+"px";
 	bangObj.className = "bang"+NO;	
 	document.getElementById("container").appendChild(bangObj);	
-	//0.2秒后移除爆炸动画
+	//0.3秒后移除爆炸动画
 	window.setTimeout(timer);
 	timer = window.setTimeout(function(){
 		document.getElementById("container").removeChild(bangObj);
@@ -53,7 +53,7 @@ Plane.prototype.bang = function(){
 Plane.prototype.die = function(){
 	var _this = this;
 	if(_this.plane){
-	document.getElementById("container").removeChild(_this.plane);
+		document.getElementById("container").removeChild(_this.plane);
 	}
 	_this.outside = true;		
 };
@@ -95,14 +95,13 @@ myPlane.prototype.fire = function(){
 	_this.bullets.fire();	
 };
 
-//飞机跟随鼠标移动
+//飞机跟随手指移动
 myPlane.prototype.move = function(state){
   var _this = this;
   _this.stage = document.getElementById("container");
 
   // 如果不是暂停
 
-  // console.log('begin:'+_this.isPause)
   // 飞机跟随手指滑动
   if (document.getElementsByClassName('myPlane')[0]){
     document.getElementsByClassName('myPlane')[0].addEventListener('touchstart', touchEvent, false);
@@ -110,7 +109,6 @@ myPlane.prototype.move = function(state){
     document.getElementsByClassName('myPlane')[0].addEventListener('touchend', touchEvent, false);
   }
 
-  // if(!_this.isPause){
     function touchEvent(event) {
     if(!planeStatus.isPause){
       event = event || window.event;
@@ -136,11 +134,9 @@ myPlane.prototype.move = function(state){
       }
       // 松开手指时，暂停游戏
       if ( event.type == "touchend"){
-        console.log(event);
         pause.style.display = "block";
         game.pause();
         planeStatus.isPause = !planeStatus.isPause;
-        // console.log('after:'+_this.isPause)
       }
     }
     };

@@ -44,12 +44,11 @@ function register() {
 // 登录逻辑
 function login() {
   var cardno = $("input[ name='cardno' ]").eq(1).val();
-  console.log(cardno)
 
   var form = new FormData();
   form.append("cardno",cardno);
 
-  // 方式二
+  // 登录
   $.ajax({
     url : "http://localhost/plane_war/public/plane/login/oklogin",
     type : "POST",
@@ -57,11 +56,27 @@ function login() {
     processData:false,
     contentType:false,
     success:function(data){
-      // console.log(data);
+      console.log(data);
       if (data.data) {
         alert("登录成功！你的卡号为："+cardno);
-        setCookie("isLogin","true");
-        console.log(document.cookie)
+        setCookie("isLogin","true"); // 设置登录状态为已登录
+        setCookie("maxscore",data.data.score); // 设置最高分
+        setCookie("nowscore",0); // 初始化当前分
+        // 获取排名信息
+        $.ajax({
+          url : "http://localhost/plane_war/public/plane/index/getmyrank",
+          type : "POST",
+          data: form,
+          processData:false,
+          contentType:false,
+          success:function(data){
+            console.log(data);
+            if (data.data) {
+              setCookie("userrank",data.data.userrank); // 设置排名
+              console.log(document.cookie)
+            }
+          }
+        })
         window.location.href = "http://localhost/plane_war/public/plane/index/";
       }
     }

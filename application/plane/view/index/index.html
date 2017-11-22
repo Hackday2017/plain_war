@@ -5,7 +5,8 @@
 	<meta charset="UTF-8" />
 	<title>play plane</title>
 	<link rel="stylesheet" href="__CSS__/view.css" />
-	<script src="__JS__/plane.js"></script>
+  <script src="__JS__/jquery-1.10.1.min.js"></script>
+  <script src="__JS__/plane.js"></script>
 	<script src="__JS__/cookie.js"></script>
 	<script src="__JS__/bullet.js"></script>
 	<script src="__JS__/main.js"></script>
@@ -19,13 +20,15 @@
       <div id="login_btn" type="button">登录 / 注册</div>
     </div>
 		<div id="pause">
-      <input id="pause_btn" type="button" value="继续游戏" />
+      <div id="pause_btn" type="button">继续游戏</div>
     </div>
 		<div id="info">总共得分
 			<div id="endScroe"></div>
 			<input id="again_btn" type="button" value="重新开始" />
+			<input id="update_score" type="button" value="" />
 		</div>
 		<div id="score"></div>
+		<div id="maxscore"></div>
 	</div>
 </body>
 </html>

@@ -26,7 +26,7 @@ body {
   background:url(../img/myPlane.png) no-repeat;
   background-size: 100% 100%;
   position: absolute;
-  z-index: 110;
+  z-index: 90;
   bottom: 0;
   left: 45%;
 }
@@ -49,10 +49,21 @@ body {
 
 #score {
   position: absolute;
-  left:0;
+  height: 35px;
+  right:0;
   top: 0;
   padding: 0 10px;
   color: red;
+  z-index: 100;
+}
+#maxscore {
+  position: absolute;
+  height: 35px;
+  right:0;
+  top: 0;
+  padding: 0 10px;
+  color: red;
+  z-index: 100;
 }
 
 #begin_btn {
@@ -91,22 +102,33 @@ body {
 }
 #again_btn {
   height: 30px;
-  width: 80% !important;
+  width: 90% !important;
   max-width: 120px;
-  font-size: 16px;
+  font-size: 14px;
   background: none;
   border:1px solid #333;
   border-radius: 15px;
   margin-bottom: 6px;
   outline: none;
-  color: yellow;
+  color: #6277ff;
+}
+#update_score {
+  height: 30px;
+  width: 90% !important;
+  max-width: 120px;
+  font-size: 14px;
+  background: none;
+  border:1px solid #333;
+  border-radius: 15px;
+  margin-bottom: 6px;
+  outline: none;
+  color: #6277ff;
+  background: #fff;
 }
 #pause_btn {
-  height: 40px;
-  width: 40%;
   font-size: 22px;
   background: none;
-  border: none;
+  border: 1px solid lightgray;
   border-radius: 15px;
   padding: 6px 30px;
   outline: none;
@@ -114,7 +136,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%,50%);
-  color: #0aff23;
+  color: lightgoldenrodyellow;
+  z-index: 100;
 }
 #begin{
   position: absolute;
@@ -124,12 +147,24 @@ body {
   height: 100%;
   z-index: 999;
 }
-#pause{	width: 100%; height: 100%; z-index: 99; position: relative; text-align: center; display: none;}
-#info{	width: 45%;  background: #ccc; text-align: center; display: none; border:1px solid #333; border-radius: 5px;
-margin: 66% auto 0;
-position: relative; z-index: 99;
+#pause{
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  position: relative;
+  text-align: center;
+  display: none;
+}
+#info{
+  width: 45%;
+  background: #ccc;
+  text-align: center;
+  display: none;
+  border:1px solid #333;
+  border-radius: 5px;
+  margin: 66% auto 0;
+  position: relative;
+  z-index: 99;
 }
 #endScroe{ height:48%; line-height: 400%; border:1px solid #333; border-width: 1px 0; font-weight: bold;}
 #container #again_btn{ margin-top:4% ; background: #fff;}
-
-/* 注册页面样式 */

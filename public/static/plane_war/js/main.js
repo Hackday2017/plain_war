@@ -185,6 +185,7 @@ game.pause = function(){
 };
 //游戏结束
 game.over = function(){
+  console.log("gameover")
 	var _this = this;
 	_this.myPlane.stop();
 	_this.myPlane.bang();
@@ -192,11 +193,26 @@ game.over = function(){
 	window.setTimeout(function(){
 		window.clearInterval(_this.gameSet);
 		var info = document.getElementById("info"),
-			endScroe = document.getElementById("endScroe");
+        endScroe = document.getElementById("endScroe"),
+        update_score = document.getElementById("update_score");
+		setCookie("nowscore",_this.scores*100); // 设置当前分数
+    // 先判断是否登录
+    console.log("isLogin:"+getCookie("isLogin"))
+    console.log("nowscore:"+getCookie("nowscore"))
+    console.log("maxscore:"+getCookie("maxscore"))
+    if (getCookie("isLogin") == "false") {
+      update_score.value = "登录并上传分数"
+    } else if (getCookie("nowscore")<getCookie("maxscore")) { // 判断是否出现高分
+      update_score.style.display = "none"
+    } else {  // 上传
+      console.log("已登录并且高分")
+      update_score.value = "上传分数"
+    }
 		info.style.display = "block";
 		endScroe.innerHTML = _this.scores*100;
 	},1500);
 };
+
 //文件载入
 onload = function(){
 	var begin  = document.getElementById("begin"),
@@ -204,11 +220,11 @@ onload = function(){
 		  pause  = document.getElementById("pause"),
 		  pause_btn = document.getElementById("pause_btn"),
 		  again_btn = document.getElementById("again_btn"),
-		  stage  = document.getElementById("container"),
 	    score_btn = document.getElementById("score_btn"),
-			login_btn = document.getElementById("login_btn");
+			login_btn = document.getElementById("login_btn"),
+      updatescore_btn = document.getElementById("update_score");
 
-  console.log(document.cookie)
+	// 如果当前已登录，则不显示 登录/注册 按钮
   if (getCookie("isLogin") == "true"){
     login_btn.style.display = "none";
   } else {
@@ -223,7 +239,27 @@ onload = function(){
   // 跳转到高分榜页面
 	score_btn.onclick = function () {
     window.location.href = 'http://localhost/plane_war/public/plane/index/highscore.html';
-  }
+  };
+
+  updatescore_btn.onclick = function () {
+      var score = getCookie("nowscore");
+      var form = new FormData();
+      form.append("score",score);
+      $.ajax({
+        url : "http://localhost/plane_war/public/plane/index/updatescore",
+        type : "POST",
+        data: form,
+        processData:false,
+        contentType:false,
+        success:function(data){
+          console.log(data);
+          if (data.data) {
+            console.log(document.cookie)
+            setCookie("maxscore",score);
+          }
+        }
+      })
+    };
 
 	begin_btn.onclick = function(e){
 		var E = e||event;
@@ -240,7 +276,7 @@ onload = function(){
 	};
 
 	pause_btn.onclick = function(e){
-		var E = e||event;	
+		var E = e||event;
 		game.begin();
 		pause.style.display = "none";
 		E.stopPropagation();
@@ -269,3 +305,23 @@ onload = function(){
 			return true;
 		}
 	}
+
+// 上传高分
+function updateHighScore() {
+  var score = getCookie("nowscore");
+  var form = new FormData();
+  form.append("score",score);
+  $.ajax({
+    url : "http://localhost/plane_war/public/plane/index/updatescore",
+    type : "POST",
+    data: form,
+    processData:false,
+    contentType:false,
+    success:function(data){
+      console.log(data);
+      if (data.data) {
+        console.log(document.cookie)
+      }
+    }
+  })
+};

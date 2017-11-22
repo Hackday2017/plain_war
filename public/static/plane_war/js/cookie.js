@@ -9,8 +9,7 @@ function setCookie(name,value) {
   var minutes = 10;
   var seconds = 30;
   var exp = new Date();
-  exp.setTime(exp.getTime() + minutes * 1000);
-  console.log(exp)
+  exp.setTime(exp.getTime() + minutes * 60 * 1000);
   document.cookie = name + "="+ value + ";expires=" + exp.toGMTString();
 }
 
@@ -18,10 +17,7 @@ function setCookie(name,value) {
 function getCookie(name) {
   var arr , reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
   if(arr=document.cookie.match(reg))
-  {
-    console.log(arr);
     return arr[2];
-  }
   else
     return null;
 }
