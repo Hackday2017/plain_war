@@ -285,6 +285,7 @@ onload = function(){
 		E.stopPropagation();
 		E.cancelBubble = true;
 		planeStatus.isPause = !planeStatus.isPause;
+		console.log("after click \"继续游戏\" ,ispause:"+planeStatus.isPause)
 	};
 
 	again_btn.onclick = function(){

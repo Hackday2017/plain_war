@@ -109,15 +109,18 @@ myPlane.prototype.move = function(state){
     document.getElementsByClassName('myPlane')[0].addEventListener('touchend', touchEvent, false);
   }
 
-  $(".pauseicon").click(function () {
-    var pause = document.getElementById("pause");
-    console.log("clicked pauseicon")
-    pause.style.display = "block";
-    game.pause();
-    planeStatus.isPause = !planeStatus.isPause;
-  })
+  // $(".pauseicon").click(function () {
+  //   var pause = document.getElementById("pause");
+  //   console.log("clicked pauseicon")
+		// console.log("pause:"+planeStatus.isPause);
+  //   pause.style.display = "block";
+  //   game.pause();
+  //   planeStatus.isPause = !planeStatus.isPause;
+  // })
 
-    function touchEvent(event) {
+
+
+	function touchEvent(event) {
     if(!planeStatus.isPause){
       event = event || window.event;
       var pause = document.getElementById("pause");
@@ -172,4 +175,11 @@ npcPlane.prototype.appear = function(){
 };
 
 
-
+function clickPauseIcon() {
+  var pause = document.getElementById("pause");
+  console.log("clicked pauseicon")
+  console.log("pause:"+planeStatus.isPause);
+  pause.style.display = "block";
+  game.pause();
+  planeStatus.isPause = !planeStatus.isPause;
+}
