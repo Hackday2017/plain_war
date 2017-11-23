@@ -41,7 +41,10 @@ body {
 #container i.lv1{position: absolute; width: 6px; height: 14px; background:url(../img/bullet1.png) no-repeat; background-size: 100% 100%; }
 #container i.lv2{position: absolute; width: 32px; height: 39px; background:url(../img/bullet2.png) no-repeat; background-size: 100% 100%; }
 #container i.lv3{position: absolute; width: 66px; height: 62px; background:url(../img/bullet3.png) no-repeat; background-size: 100% 100%; }
-#container span{display: block;position: absolute;}
+#container span{
+  display: block;
+  position: absolute;
+}
 .bang1{ background:url(../img/plane1.gif); background-size: 100% 100%}
 .bang2{background:url(../img/plane2.gif);  background-size: 100% 100%}
 .bang3{background:url(../img/plane3.gif);  background-size: 100% 100%}
@@ -67,21 +70,19 @@ body {
 }
 
 #begin_btn {
-  margin-left: 30%;
-  width: 40%;
-  height: 35px;
-  top: 55%;
-  border: 1px solid #ffffff;
+  margin-left: 25%;
+  width: 50%;
+  height: 50px;
+  top: 57%;
   background: url("../img/begin_btn.png") center;
   background-size: 100% 100%;
   position: absolute;
 }
 #score_btn {
-  margin-left: 30%;
-  height: 35px;
-  width: 40%;
-  top: 67%;
-  border: 1px solid #ffffff;
+  margin-left: 25%;
+  height: 50px;
+  width: 50%;
+  top: 74%;
   background: url("../img/score_btn.png") center;
   background-size: 100% 100%;
   position: absolute;
@@ -94,35 +95,31 @@ body {
   color: #cccccc;
 }
 #again_btn {
-  height: 30px;
+  height: 40px;
   width: 60% !important;
   background: url("../img/pause.png") center;
   background-size: 100% 100%;
-  border:1px solid #333;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   margin-left: 20%;
 }
 #update_score {
-  height: 30px;
+  height: 40px;
   width: 60% !important;
   background: url("../img/update.png") center;
   background-size: 100% 100%;
-  border:1px solid #333;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   margin-left: 20%;
 }
 #pause_btn {
-  width: 40%;
-  max-width: 150px;
-  height: 40px;
-  background: url("../img/pause.png") center;
+  width: 150px;
+  height: 150px;
+  background: url("../img/continue.png") center;
   background-size: 100% 100%;
-  border: 1px solid lightgray;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,50%);
-  z-index: 100;
+  transform: translate(-50%,-50%);
+  z-index: 102;
 }
 #begin{
   position: absolute;
@@ -140,19 +137,23 @@ body {
   text-align: center;
   display: none;
 }
+#info-wrapper {
+  height: 100%;
+  width: 100%;
+  display: none;
+}
 #info{
-  width: 65%;
+  width: 64%;
   max-width: 205px;
-  /*height: 50%;*/
   max-height: 250px;
   background: rgb(55,119,206);
   text-align: center;
-  display: none;
-  border:1px solid #333;
+  display: block;
+  border:none;
   border-radius: 5px;
-  margin: 46% auto 0;
-  position: relative;
-  z-index: 99;
+  margin: 60% auto 0 18%;
+  position: absolute;
+  z-index: 101;
 }
 .pauseicon {
   position: absolute;
@@ -162,14 +163,51 @@ body {
   top: 4px;
   background: url("../img/pauseicon.png") center;
   background-size: 100% 100%;
+  z-index: 90;
 }
 .totalicon {
-  height: 17%;
+  background: url("../img/scoreicon2.png") center ;
+  background-size: 100% 100%;
+  height: 36px;
   width: 60%;
-  margin: 0 auto;
+  margin: 5px auto;
 }
 #endScroe{
-  height:33%;
-  line-height: 400%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 26px;
   font-weight: bold;
+  font-family: 幼圆;
+}
+#scorearea {
+  position: absolute;
+  top: 6px;
+  left: 4px;
+}
+#scorearea * {
+  vertical-align: middle;
+}
+#scorearea img {
+  /*background: url("../img/socreicon1.png");*/
+  /*background-size: 100% 100%;*/
+  height: 20px;
+  width: 66px;
+}
+#scoretexticon {
+  /*border: 4px solid black;*/
+}
+#scoretext {
+  font-size: 20px;
+  height: 20px;
+  color: white;
+}
+.filter {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  filter:alpha(Opacity=80);
+  -moz-opacity:0.5;
+  opacity: 0.5;
+  z-index:100;
+  background-color: rgb(7,28,52);
 }

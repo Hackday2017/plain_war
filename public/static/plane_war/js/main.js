@@ -139,7 +139,8 @@ game.run = function(){
 		}
 	}		
 	//记分板
-	document.getElementById("score").innerHTML = "得分：" + _this.scores*100;
+	// document.getElementById("score").innerHTML = "得分：" + _this.scores*100;
+  document.getElementById("scoretext").innerHTML = "：" + _this.scores*100;
 	//背景运动
 	_this.stageBgY++;
 	_this.stage.style.backgroundPositionY = _this.stageBgY + "px";
@@ -203,7 +204,7 @@ game.over = function(){
 	//得分统计
 	window.setTimeout(function(){
 		window.clearInterval(_this.gameSet);
-		var info = document.getElementById("info"),
+		var info = document.getElementById("info-wrapper"),
         endScroe = document.getElementById("endScroe"),
         update_score = document.getElementById("update_score");
 		setCookie("nowscore",_this.scores*100); // 设置当前分数

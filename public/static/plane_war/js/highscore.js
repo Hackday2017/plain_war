@@ -29,7 +29,7 @@ $(function () {
           items.children("td").each(function (innerindex) {
             switch(innerindex){
               case 0 :
-                $(this).html(item.cardno);
+                $(this).html(_index+1);
                 break;
               case 1 :
                 $(this).html(item.name);
@@ -37,10 +37,10 @@ $(function () {
               case 2 :
                 $(this).html(item.score);
                 break;
+              // case 3 :
+              //   $(this).html(item.school);
+              //   break;
               case 3 :
-                $(this).html(item.school);
-                break;
-              case 4 :
                 $(this).html(item.major);
                 break;
             }
