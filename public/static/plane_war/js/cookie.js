@@ -5,8 +5,8 @@
 
 // 写cookie
 function setCookie(name,value) {
-  var hours = 1; // 持续时间
-  var minutes = 10;
+  var hours = 1;
+  var minutes = 20; // 持续时间
   var seconds = 30;
   var exp = new Date();
   exp.setTime(exp.getTime() + minutes * 60 * 1000);
@@ -30,4 +30,11 @@ function deleteCookie(name) {
   if(!cval) {
     document.cookie = name + "="+cval+";expires="+exp.toGMTString();
   }
+}
+
+function initUserCookie() {
+  setCookie("cardno","");
+  setCookie("maxscore","");
+  setCookie("nowscore","");
+  setCookie("userrank","");
 }

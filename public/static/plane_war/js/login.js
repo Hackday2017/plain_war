@@ -2,6 +2,7 @@
  * Created by zhumengyue at 2017/11/22 16:42
  * description :
  */
+
 // 注册逻辑
 function register() {
   var cardno = $("input[ name='cardno' ]").eq(0).val(),
@@ -22,7 +23,6 @@ function register() {
     form.append("gender",gender);
     form.append("school",school);
 
-    //
     $.ajax({
       url : "http://localhost/plane_war/public/plane/login/adduser",
       type : "POST",
@@ -50,39 +50,6 @@ function login() {
 
   // 登录
   userlogin(form);
-  getRank(form);
-  // $.ajax({
-  //   url : "http://localhost/plane_war/public/plane/login/oklogin",
-  //   type : "POST",
-  //   data: form,
-  //   processData:false,
-  //   contentType:false,
-  //   success:function(data){
-  //     console.log(data);
-  //     if (data.data) {
-  //       alert("登录成功！你的卡号为："+cardno);
-  //       setCookie("isLogin","true"); // 设置登录状态为已登录
-  //       setCookie("maxscore",data.data.score); // 设置最高分
-  //       setCookie("nowscore",0); // 初始化当前分
-  //       // 获取排名信息
-  //       $.ajax({
-  //         url : "http://localhost/plane_war/public/plane/index/getmyrank",
-  //         type : "POST",
-  //         data: form,
-  //         processData:false,
-  //         contentType:false,
-  //         success:function(data){
-  //           console.log(data);
-  //           if (data.data) {
-  //             setCookie("userrank",data.data.userrank); // 设置排名
-  //             console.log(document.cookie)
-  //           }
-  //         }
-  //       })
-  //       window.location.href = "http://localhost/plane_war/public/plane/index/";
-  //     }
-  //   }
-  // })
 }
 
 window.onload = function () {
