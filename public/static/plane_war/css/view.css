@@ -11,7 +11,7 @@ body {
   font: normal normal 16px/30px arial,"微软雅黑";
 }
 #container {
-  text-align: center;
+  /*text-align: center;*/
   width: 100%;
   height: 100%;
   background: url(../img/background_1.png);
@@ -50,8 +50,8 @@ body {
 #score {
   position: absolute;
   height: 35px;
-  right:0;
-  top: 0;
+  left:0;
+  top: 2px;
   padding: 0 10px;
   color: red;
   z-index: 100;
@@ -69,74 +69,59 @@ body {
 #begin_btn {
   margin-left: 30%;
   width: 40%;
+  height: 35px;
   top: 55%;
-  font-size: 22px;
-  border: none;
-  background: none;
-  outline: none;
+  border: 1px solid #ffffff;
+  background: url("../img/begin_btn.png") center;
+  background-size: 100% 100%;
   position: absolute;
-  color: #0aff23;
 }
 #score_btn {
   margin-left: 30%;
+  height: 35px;
   width: 40%;
   top: 67%;
-  font-size: 22px;
-  border: none;
-  background: none;
-  outline: none;
+  border: 1px solid #ffffff;
+  background: url("../img/score_btn.png") center;
+  background-size: 100% 100%;
   position: absolute;
-  color: yellow;
 }
 #login_btn {
-  margin-left: 30%;
-  width: 40%;
-  top: 80%;
-  font-size: 22px;
-  border: none;
-  background: none;
-  outline: none;
+  right: 5px;
+  top: 2px;
+  font-size: 14px;
   position: absolute;
-  color: black;
-  /*display: none;*/
+  color: #cccccc;
 }
 #again_btn {
   height: 30px;
-  width: 90% !important;
-  max-width: 120px;
-  font-size: 14px;
-  background: none;
+  width: 60% !important;
+  background: url("../img/pause.png") center;
+  background-size: 100% 100%;
   border:1px solid #333;
-  border-radius: 15px;
-  margin-bottom: 6px;
-  outline: none;
-  color: #6277ff;
+  margin-bottom: 12px;
+  margin-left: 20%;
 }
 #update_score {
   height: 30px;
-  width: 90% !important;
-  max-width: 120px;
-  font-size: 14px;
-  background: none;
+  width: 60% !important;
+  background: url("../img/update.png") center;
+  background-size: 100% 100%;
   border:1px solid #333;
-  border-radius: 15px;
-  margin-bottom: 6px;
-  outline: none;
-  color: #6277ff;
-  background: #fff;
+  margin-bottom: 12px;
+  margin-left: 20%;
 }
 #pause_btn {
-  font-size: 22px;
-  background: none;
+  width: 40%;
+  max-width: 150px;
+  height: 40px;
+  background: url("../img/pause.png") center;
+  background-size: 100% 100%;
   border: 1px solid lightgray;
-  border-radius: 15px;
-  padding: 6px 30px;
-  outline: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,50%);
-  color: lightgoldenrodyellow;
   z-index: 100;
 }
 #begin{
@@ -156,20 +141,35 @@ body {
   display: none;
 }
 #info{
-  width: 45%;
-  background: #ccc;
+  width: 65%;
+  max-width: 205px;
+  /*height: 50%;*/
+  max-height: 250px;
+  background: rgb(55,119,206);
   text-align: center;
   display: none;
   border:1px solid #333;
   border-radius: 5px;
-  margin: 66% auto 0;
+  margin: 46% auto 0;
   position: relative;
   z-index: 99;
 }
 .pauseicon {
   position: absolute;
-  left: 2px;
+  width: 50px;
+  height: 35px;
+  right: 2px;
   top: 4px;
+  background: url("../img/pauseicon.png") center;
+  background-size: 100% 100%;
 }
-#endScroe{ height:48%; line-height: 400%; border:1px solid #333; border-width: 1px 0; font-weight: bold;}
-#container #again_btn{ margin-top:4% ; background: #fff;}
+.totalicon {
+  height: 17%;
+  width: 60%;
+  margin: 0 auto;
+}
+#endScroe{
+  height:33%;
+  line-height: 400%;
+  font-weight: bold;
+}

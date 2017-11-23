@@ -207,14 +207,15 @@ game.over = function(){
         endScroe = document.getElementById("endScroe"),
         update_score = document.getElementById("update_score");
 		setCookie("nowscore",_this.scores*100); // 设置当前分数
+
     // 先判断是否登录
     if (getCookie("isLogin") == "false" || getCookie("isLogin") == null) {
-      update_score.value = "登录并上传分数"
+      // update_score.value = "登录并上传分数"
     } else if (parseInt(getCookie("nowscore")) < parseInt(getCookie("maxscore"))) { // 判断是否出现高分
       update_score.style.display = "none"
     } else {  // 上传
       console.log("已登录并且高分")
-      update_score.value = "上传分数"
+      // update_score.value = "上传分数"
     }
 		info.style.display = "block";
 		endScroe.innerHTML = _this.scores*100;

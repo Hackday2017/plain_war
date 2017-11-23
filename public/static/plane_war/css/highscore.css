@@ -25,19 +25,21 @@ html,body {
   width: 100%;
   overflow: hidden;
 }
-.title p {
-  font-size: 24px;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-family: "RTWSShangGoG0v1";
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background: url("../img/ScoreBg.png") center no-repeat;
+  background-size: 100% 100%;
 }
+
 .table {
-  width: 95%;
-  border: solid 1px black ;
-  align: center;
-  margin: 0 auto;
+  position: absolute;
+  width: 94%;
+  border: solid 1px #cccccc ;
+  margin-left: 3%;
   border-collapse:collapse;
+  color: #cccccc;
+  top: 20%;
 }
 tr,td {
   text-align: center;
@@ -45,11 +47,11 @@ tr,td {
 .table-header > td {
   font-size: 15px;
   font-family: "DFWaWaSC W5";
-  border: solid 1px black ;
+  border: solid 1px #cccccc ;
 }
 .data > td {
   padding: 3px;
   font-size: 13px;
   font-family: "微软雅黑 Light";
-  border: solid 1px black ;
+  border: solid 1px #cccccc ;
 }
