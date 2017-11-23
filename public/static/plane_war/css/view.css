@@ -166,5 +166,10 @@ body {
   position: relative;
   z-index: 99;
 }
+.pauseicon {
+  position: absolute;
+  left: 2px;
+  top: 4px;
+}
 #endScroe{ height:48%; line-height: 400%; border:1px solid #333; border-width: 1px 0; font-weight: bold;}
 #container #again_btn{ margin-top:4% ; background: #fff;}

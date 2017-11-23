@@ -109,6 +109,14 @@ myPlane.prototype.move = function(state){
     document.getElementsByClassName('myPlane')[0].addEventListener('touchend', touchEvent, false);
   }
 
+  $(".pauseicon").click(function () {
+    var pause = document.getElementById("pause");
+    console.log("clicked pauseicon")
+    pause.style.display = "block";
+    game.pause();
+    planeStatus.isPause = !planeStatus.isPause;
+  })
+
     function touchEvent(event) {
     if(!planeStatus.isPause){
       event = event || window.event;
@@ -132,12 +140,13 @@ myPlane.prototype.move = function(state){
       if(_this.plane.offsetTop>_this.stage.offsetHeight-_this.plane.offsetHeight){
         _this.plane.style.top = _this.stage.offsetHeight-_this.plane.offsetHeight + "px";
       }
+
       // 松开手指时，暂停游戏
-      if ( event.type == "touchend"){
-        pause.style.display = "block";
-        game.pause();
-        planeStatus.isPause = !planeStatus.isPause;
-      }
+      // if ( event.type == "touchend"){
+      //   pause.style.display = "block";
+      //   game.pause();
+      //   planeStatus.isPause = !planeStatus.isPause;
+      // }
     }
     };
 	// }
