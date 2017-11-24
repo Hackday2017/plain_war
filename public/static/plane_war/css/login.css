@@ -31,10 +31,43 @@ html , body {
   display: none;
 }
 .subbtn {
-  padding: 2px;
+  padding-top: 5px;
+  padding-bottom: 4px;
   text-align: center;
   height: 25px;
   width: 30%;
   margin: 12px auto;
-  border: 1px solid black;
+  border: 1px solid #AAAAAA;
+  border-radius: 5px;
+}
+.form {
+  height: auto;
+  margin: 40px auto;
+  padding: 8px;
+}
+.form *:focus{
+  outline: none;
+}
+.form ul li {
+  padding: 10px;
+}
+.form ul li label {
+  width: 80px;
+  display: inline-block;
+  text-align: center;
+}
+.form ul li input[name=cardno],
+.form ul li input[name=name],
+.form ul li input[name=major] {
+  width: 140px;
+  height: 20px;
+  border: 1px solid #AAAAAA;
+  padding: 3px 12px;
+  border-radius: 5px;
+  /*color: #CCC;*/
+}
+.form ul li input[name=cardno],
+.form ul li input[name=name] {
+  background: url("../img/aterisk.png") no-repeat #FFF 98%;
+  background-size: 8px 12px;
 }

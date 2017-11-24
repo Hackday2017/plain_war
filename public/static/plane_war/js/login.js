@@ -45,11 +45,15 @@ function register() {
 function login() {
   var cardno = $("input[ name='cardno' ]").eq(1).val();
 
-  var form = new FormData();
-  form.append("cardno",cardno);
+  if (!cardno) {
+    alert("请输入卡号！")
+  } else {
+    var form = new FormData();
+    form.append("cardno",cardno);
+    // 登录
+    userlogin(form);
+  }
 
-  // 登录
-  userlogin(form);
 }
 
 window.onload = function () {
