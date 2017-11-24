@@ -211,11 +211,15 @@ game.over = function(){
 
     // 先判断是否登录
     if (getCookie("isLogin") == "false" || getCookie("isLogin") == null) {
-      // update_score.value = "登录并上传分数"
-    } else if (parseInt(getCookie("nowscore")) < parseInt(getCookie("maxscore"))) { // 判断是否出现高分
-      update_score.style.display = "none"
+      // 如果未登录，什么都不做，正常显示
+    } else if (parseInt(getCookie("nowscore")) <= parseInt(getCookie("maxscore"))) { // 判断是否出现高分
+      // 如果已登录并且 当前分数没有超过最高分，不显示upload
+      update_score.style.display = "none";
     } else {  // 上传
-      console.log("已登录并且高分")
+      // 已登录，当前分数大于最高分
+      update_score.style.display = "none"; // 不显示upload
+      updateHighScore(); // 上传分数
+      console.log("已登录并且上传高分")
       // update_score.value = "上传分数"
     }
 		info.style.display = "block";

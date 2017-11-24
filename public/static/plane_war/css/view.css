@@ -72,7 +72,7 @@ body {
 #begin_btn {
   margin-left: 25%;
   width: 50%;
-  height: 50px;
+  height: 10%;
   top: 57%;
   background: url("../img/begin_btn.png") center;
   background-size: 100% 100%;
@@ -80,7 +80,7 @@ body {
 }
 #score_btn {
   margin-left: 25%;
-  height: 50px;
+  height: 10%;
   width: 50%;
   top: 74%;
   background: url("../img/score_btn.png") center;
@@ -188,8 +188,6 @@ body {
   vertical-align: middle;
 }
 #scorearea img {
-  /*background: url("../img/socreicon1.png");*/
-  /*background-size: 100% 100%;*/
   height: 20px;
   width: 66px;
 }
