@@ -64,6 +64,7 @@ window.onload = function () {
     $("#register-text").css("color", "#6277ff");
     $("#login-text").css("font-size", "24px");
   }
+
   // 点击切换登录/注册页面
   $(".title").click(function () {
       user.nowIsLogin = !user.nowIsLogin; // 切换登录/注册状态
@@ -85,6 +86,14 @@ window.onload = function () {
       }
     }
   );
+
+  // $(":input[name=cardno]").focus(function () {
+  //   $("p").eq(0).css("display","block")
+  // })
+  // $(":input[name=cardno]").blur(function () {
+  //   $("p").eq(0).css("display","none")
+  // })
+
   // 登录/注册页 返回按钮
   $(".back").click(function () {
     window.location.href = "http://localhost/plane_war/public/plane/index/";

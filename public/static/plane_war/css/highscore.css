@@ -45,19 +45,23 @@ html,body {
   /*margin-left: 3%;*/
   border-collapse:collapse;
   /*color: #cccccc;*/
-  top: 12.5%;
+  top: 12%;
 }
 tr,td {
   text-align: center;
 }
+thead tr {
+  /*height: 5.8%;*/
+}
 .table-header > td {
+  padding-bottom: 6px;
   font-size: 17px;
   font-family: "DFWaWaSC W5";
   /*border: solid 1px #cccccc ;*/
   border: none;
 }
 .data > td {
-  padding: 3px;
+  padding: 6px;
   font-size: 14px;
   font-family: "微软雅黑 Light";
   /*border: solid 1px #cccccc ;*/
