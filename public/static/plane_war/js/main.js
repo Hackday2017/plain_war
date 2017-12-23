@@ -169,9 +169,10 @@ game.run = function(){
 game.begin = function(){
 	var _this =this;
 	// if(!_this.myPlane){
+  if(!planeStatus.isPause)
 	  _this.initMyPlane();
 	// }else{
-	// 	_this.myPlane.move();
+		// _this.myPlane.move();
 	// }
 	_this.gameSet = window.setInterval(function(){
 		_this.run();
@@ -240,9 +241,9 @@ onload = function(){
     var container = document.getElementById("container");
     var p =document.getElementsByTagName("p");
     var t;
-    for(t=0;t<p.length;t++){
-      container.removeChild(p[0]);
-    }
+    // for(t=0;t<p.length;t++){
+    //   container.removeChild(p[0]);
+    // }
 
     var E = e||event;
     game.scores = 0;
