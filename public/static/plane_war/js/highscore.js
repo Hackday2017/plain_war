@@ -37,12 +37,6 @@ $(function () {
               case 2 :
                 $(this).html(item.score);
                 break;
-              // case 3 :
-              //   $(this).html(item.school);
-              //   break;
-              case 3 :
-                $(this).html(item.major);
-                break;
             }
           });
           items.insertBefore(tr);

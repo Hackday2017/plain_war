@@ -42,10 +42,8 @@ html,body {
   position: absolute;
   width: 100%;
   border: none;
-  /*margin-left: 3%;*/
   border-collapse:collapse;
-  /*color: #cccccc;*/
-  top: 12%;
+  top: 22%;
 }
 tr,td {
   text-align: center;
@@ -55,15 +53,17 @@ thead tr {
 }
 .table-header > td {
   padding-bottom: 6px;
-  font-size: 17px;
+  font-size: 19px;
   font-family: "DFWaWaSC W5";
   /*border: solid 1px #cccccc ;*/
   border: none;
 }
 .data > td {
   padding: 6px;
-  font-size: 14px;
-  font-family: "微软雅黑 Light";
+  min-height: 30px;
+  font-size: 18px;
+  font-family: "RTWSShangGoG0v1";
+  /*font-family: 幼圆;*/
   /*border: solid 1px #cccccc ;*/
   border: none;
 }

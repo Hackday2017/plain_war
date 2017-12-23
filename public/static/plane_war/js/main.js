@@ -2,7 +2,7 @@ var game = {
 	myPlane:null,
 	allPlane:[],
 	allBullet:[],
-	planeSpeed:[4,3,2,1],
+	planeSpeed:[5,4,3,2],
 	planeDensity:[20,200,600,1000],
 	interval:1000/24,
 	scores:0,
@@ -58,7 +58,7 @@ game.run = function(){
 	if(_this.num%_this.planeDensity[1] == 0){
 		var npc = new npcPlane();
 		npc.class = "npc2";	
-		npc.armor = npc.score = 5;
+		npc.armor = npc.score = 1;
 		npc.speed = _this.planeSpeed[1];	
 		npc.show();
 		npc.appear();		
@@ -67,7 +67,7 @@ game.run = function(){
 	if(_this.num%_this.planeDensity[2] == 0){
 		var npc = new npcPlane();
 		npc.class = "npc3";		
-		npc.armor = npc.score = 10;
+		npc.armor = npc.score = 1;
 		npc.speed = _this.planeSpeed[2];	
 		npc.show();
 		npc.appear();
@@ -76,7 +76,7 @@ game.run = function(){
 	if(_this.num%_this.planeDensity[3] == 0){
 		var npc = new npcPlane();
 		npc.class = "npc4";		
-		npc.armor = npc.score = 20;
+		npc.armor = npc.score = 1;
 		npc.speed = _this.planeSpeed[3];	
 		npc.show();
 		npc.appear();
@@ -120,17 +120,17 @@ game.run = function(){
 					//得分
 					_this.scores += _this.allPlane[i].score;
 					//击杀boss获得奖励
-					if(_this.allPlane[i].class == "npc4"){
-						//第一次击杀
-						if(_this.myPlane.lv == 1){
-							_this.myPlane.lv++;
-						}
-						_this.killBossCount++;
-						//击杀n次boss得到最终武器
-						if(_this.killBossCount == 9){
-							_this.myPlane.lv++;
-						}
-					}					
+					// if(_this.allPlane[i].class == "npc4"){
+					// 	//第一次击杀
+					// 	if(_this.myPlane.lv == 1){
+					// 		_this.myPlane.lv++;
+					// 	}
+					// 	_this.killBossCount++;
+					// 	//击杀n次boss得到最终武器
+					// 	if(_this.killBossCount == 9){
+					// 		_this.myPlane.lv++;
+					// 	}
+					// }
 					//飞机爆炸
 					_this.allPlane[i].bang();						
 				}				
@@ -139,30 +139,29 @@ game.run = function(){
 		}
 	}		
 	//记分板
-	// document.getElementById("score").innerHTML = "得分：" + _this.scores*100;
-  document.getElementById("scoretext").innerHTML = "：" + _this.scores*100;
+  document.getElementById("scoretext").innerHTML = "：" + _this.scores;
 	//背景运动
 	_this.stageBgY++;
 	_this.stage.style.backgroundPositionY = _this.stageBgY + "px";
 	//游戏进度
-	if(_this.scores>20 && _this.scores<40){
-		_this.planeSpeed = [5,4,3,2];
+	if(_this.scores>10 && _this.scores<20){
+		_this.planeSpeed = [6,5,4,3];
 		_this.planeDensity = [15,200,600,1000];
 	}
-	if(_this.scores>40 && _this.scores<80){
-		_this.planeSpeed = [6,5,4,3];
+	if(_this.scores>20 && _this.scores<40){
+		_this.planeSpeed = [7,6,5,4];
 		_this.planeDensity = [15,100,400,2000];
 	}
-	if(_this.scores>80 && _this.scores<100){
-		_this.planeSpeed = [7,6,5,4];
+	if(_this.scores>40 && _this.scores<80){
+		_this.planeSpeed = [8,7,6,5];
 		_this.planeDensity = [10,200,500,1500];
 	}
-	if(_this.scores>150){
-		_this.planeSpeed = [10,8,6,5];
+	if(_this.scores>120){
+		_this.planeSpeed = [12,10,8,7];
 		_this.planeDensity = [10,150,300,1000];
 	}
-	if(_this.scores>300){
-		_this.planeSpeed = [12,10,8,4];
+	if(_this.scores>200){
+		_this.planeSpeed = [15,13,11,9];
 		_this.planeDensity = [8,100,200,800];
 	}	
 };
@@ -172,13 +171,13 @@ game.begin = function(){
     initUserCookie();
   }
   // 如果已经登录
-	if (getCookie("isLogin") == "true"){
-	  var form = new FormData();
-	  form.append("cardno",getCookie("cardno"));
-	  console.log(form);
-	  setCookie("nowscore",0);
-    setCookie("userrank",getRank());
-  }
+  // if (getCookie("isLogin") == "true"){
+	 //  var form = new FormData();
+	 //  form.append("cardno",getCookie("cardno"));
+	 //  console.log(form);
+	 //  setCookie("nowscore",0);
+  //   setCookie("userrank",getRank());
+  // }
 	var _this =this;
 	if(!_this.myPlane){
 	_this.initMyPlane();
@@ -197,7 +196,6 @@ game.pause = function(){
 };
 //游戏结束
 game.over = function(){
-  console.log("gameover")
 	var _this = this;
 	_this.myPlane.stop();
 	_this.myPlane.bang();
@@ -210,20 +208,21 @@ game.over = function(){
 		setCookie("nowscore",_this.scores*100); // 设置当前分数
 
     // 先判断是否登录
-    if (getCookie("isLogin") == "false" || getCookie("isLogin") == null) {
-      // 如果未登录，什么都不做，正常显示
-    } else if (parseInt(getCookie("nowscore")) <= parseInt(getCookie("maxscore"))) { // 判断是否出现高分
-      // 如果已登录并且 当前分数没有超过最高分，不显示upload
-      update_score.style.display = "none";
-    } else {  // 上传
-      // 已登录，当前分数大于最高分
-      update_score.style.display = "none"; // 不显示upload
-      updateHighScore(); // 上传分数
-      console.log("已登录并且上传高分")
-      // update_score.value = "上传分数"
-    }
+    // if (getCookie("isLogin") == "false" || getCookie("isLogin") == null) {
+    //   // 如果未登录，什么都不做，正常显示
+    // } else if (parseInt(getCookie("nowscore")) <= parseInt(getCookie("maxscore"))) { // 判断是否出现高分
+    //   // 如果已登录并且 当前分数没有超过最高分，不显示upload
+    //   update_score.style.display = "none";
+    // } else {  // 上传
+    //   // 已登录，当前分数大于最高分
+    //   update_score.style.display = "none"; // 不显示upload
+    //   updateHighScore(); // 上传分数
+    //   console.log("已登录并且上传高分")
+    //   // update_score.value = "上传分数"
+    // }
+
 		info.style.display = "block";
-		endScroe.innerHTML = _this.scores*100;
+		endScroe.innerHTML = _this.scores;
 	},1500);
 };
 
@@ -242,18 +241,18 @@ onload = function(){
   }
 
 	// 如果当前已登录，则不显示 "登录/注册" 按钮
-  if (getCookie("isLogin") == "true"){
-    login_btn.style.display = "none";
-    setCookie("userrank",getCookie("userrank"));
-    setCookie("nowscore",0);
-  } else {
-    login_btn.style.display = "block";
-  }
+  // if (getCookie("isLogin") == "true"){
+   //  login_btn.style.display = "none";
+   //  setCookie("userrank",getCookie("userrank"));
+   //  setCookie("nowscore",0);
+  // } else {
+   //  login_btn.style.display = "block";
+  // }
 
   // 跳转到注册页面
-  login_btn.onclick = function () {
-    window.location.href = "http://localhost/plane_war/public/plane/index/register.html";
-  };
+  // login_btn.onclick = function () {
+  //   window.location.href = "http://localhost/plane_war/public/plane/index/register.html";
+  // };
 
   // 跳转到高分榜页面
 	score_btn.onclick = function () {
@@ -290,7 +289,6 @@ onload = function(){
 		E.stopPropagation();
 		E.cancelBubble = true;
 		planeStatus.isPause = !planeStatus.isPause;
-		console.log("after click \"继续游戏\" ,ispause:"+planeStatus.isPause)
 	};
 
 	again_btn.onclick = function(){

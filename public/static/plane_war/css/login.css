@@ -56,18 +56,14 @@ html , body {
   display: inline-block;
   text-align: center;
 }
-.form ul li input[name=cardno],
-.form ul li input[name=name],
-.form ul li input[name=major] {
+.form ul li input{
   width: 140px;
   height: 20px;
   border: 1px solid #AAAAAA;
   padding: 3px 12px;
   border-radius: 5px;
-  /*color: #CCC;*/
-}
-.form ul li input[name=cardno],
-.form ul li input[name=name] {
   background: url("../img/aterisk.png") no-repeat #FFF 98%;
   background-size: 8px 12px;
+  background: transparent;
+  color: #fff;
 }

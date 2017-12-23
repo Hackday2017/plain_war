@@ -34,20 +34,20 @@ body {
   background:url(../img/myPlaneBang.gif);
   background-size: 100% 100%;
 }
-.npc1{width: 34px;height: 24px;background:url(../img/npc1.png) no-repeat; background-size: 100% 100%; position: absolute; top: 0; left: 45%;}
-.npc2{width: 46px;height: 60px;background:url(../img/npc2.png) no-repeat; background-size: 100% 100%;  position: absolute; top: 0; left: 45%;}
-.npc3{width: 110px;height: 164px;background:url(../img/npc3.png) no-repeat; background-size: 100% 100%;  position: absolute; top: 0; left: 45%;}
-.npc4{width: 54px;height: 76px;background:url(../img/npc4.png); position: absolute; top: 0; left: 45%;}
+.npc1{width: 40px;height: 40px;background:url(../img/npc1.png) no-repeat; background-size: 100% 100%; position: absolute; top: 0; left: 45%;}
+.npc2{width: 55px;height: 55px;background:url(../img/npc1.png) no-repeat; background-size: 100% 100%;  position: absolute; top: 0; left: 45%;}
+.npc3{width: 70px;height: 70px;background:url(../img/npc1.png) no-repeat; background-size: 100% 100%;  position: absolute; top: 0; left: 45%;}
+.npc4{width: 90px;height: 90px;background:url(../img/npc1.png); position: absolute; top: 0; left: 45%;}
 #container i.lv1{position: absolute; width: 6px; height: 14px; background:url(../img/bullet1.png) no-repeat; background-size: 100% 100%; }
-#container i.lv2{position: absolute; width: 32px; height: 39px; background:url(../img/bullet2.png) no-repeat; background-size: 100% 100%; }
-#container i.lv3{position: absolute; width: 66px; height: 62px; background:url(../img/bullet3.png) no-repeat; background-size: 100% 100%; }
+#container i.lv2{position: absolute; width: 6px; height: 14px; background:url(../img/bullet1.png) no-repeat; background-size: 100% 100%; }
+#container i.lv3{position: absolute; width: 6px; height: 14px; background:url(../img/bullet1.png) no-repeat; background-size: 100% 100%; }
 #container span{
   display: block;
   position: absolute;
 }
 .bang1{ background:url(../img/plane1.gif); background-size: 100% 100%}
-.bang2{background:url(../img/plane2.gif);  background-size: 100% 100%}
-.bang3{background:url(../img/plane3.gif);  background-size: 100% 100%}
+.bang2{background:url(../img/plane1.gif);  background-size: 100% 100%}
+.bang3{background:url(../img/plane1.gif);  background-size: 100% 100%}
 /*.bang4{background:url(../img/plane4.gif); }*/
 
 #score {
@@ -70,9 +70,9 @@ body {
 }
 
 #begin_btn {
-  margin-left: 25%;
-  width: 50%;
-  height: 10%;
+  margin-left: 10%;
+  width: 70%;
+  height: 15%;
   top: 57%;
   background: url("../img/begin_btn.png") center;
   background-size: 100% 100%;
@@ -95,24 +95,26 @@ body {
   color: #cccccc;
 }
 #again_btn {
-  height: 40px;
-  width: 60% !important;
-  background: url("../img/pause.png") center;
+  position: absolute;
+  height: 24px;
+  width: 32% !important;
+  background: url(../img/pause.png) center;
   background-size: 100% 100%;
-  margin-bottom: 18px;
-  margin-left: 20%;
+  bottom: 30%;
+  left: 34%;
 }
 #update_score {
-  height: 40px;
-  width: 60% !important;
-  background: url("../img/update.png") center;
+  position: absolute;
+  height: 8%;
+  width: 36% !important;
+  background: url(../img/update.png) center;
+  top: 55%;
   background-size: 100% 100%;
-  margin-bottom: 18px;
-  margin-left: 20%;
+  left: 32%;
 }
 #pause_btn {
-  width: 150px;
-  height: 150px;
+  width: 171px;
+  height: 144px;
   background: url("../img/continue.png") center;
   background-size: 100% 100%;
   position: absolute;
@@ -140,29 +142,27 @@ body {
 #info-wrapper {
   height: 100%;
   width: 100%;
+  background: url("../img/end.png") no-repeat;
+  background-size: 100% 100%;
   display: none;
+  position: absolute;
+  top:0;
+  z-index: 110;
 }
 #info{
-  width: 52%;
-  /*max-width: 205px;*/
-  max-height: 250px;
-  background: rgb(55,119,206);
+  width: 100%;
+  height: 100%;
   text-align: center;
   display: block;
   border:none;
-  border-radius: 5px;
-  /*margin: 60% auto 0 18%;*/
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
   position: absolute;
   z-index: 101;
 }
 .pauseicon {
   position: absolute;
-  width: 50px;
-  height: 35px;
-  right: 2px;
+  width: 40px;
+  height: 40px;
+  right: 4px;
   top: 4px;
   background: url("../img/pauseicon.png") center;
   background-size: 100% 100%;
@@ -176,11 +176,16 @@ body {
   margin: 5px auto;
 }
 #endScroe{
-  height: 60px;
-  line-height: 60px;
-  font-size: 26px;
+  width: 26%;
+  height: 5%;
+  font-size: 46px;
   font-weight: bold;
   font-family: 幼圆;
+  color: white;
+  /* border: 1px solid white; */
+  position: absolute;
+  top: 17%;
+  left: 39%;
 }
 #scorearea {
   position: absolute;
@@ -211,4 +216,30 @@ body {
   opacity: 0.5;
   z-index:100;
   background-color: rgb(7,28,52);
+}
+#againgame {
+  position: absolute;
+  height: 56px;
+  width: 56px;
+  background: url(../img/again.png) no-repeat;
+  background-size: 100% 100%;
+  bottom: 12px;
+  left: 12px;
+}
+.form {
+
+}
+.form *:focus{
+  outline: none;
+}
+
+.form ul li input {
+  width: 140px;
+  height: 20px;
+  border: 1px solid #AAAAAA;
+  padding: 3px 12px;
+  caret-color: red;
+  /*border-radius: 5px;*/
+  background: transparent;
+  color: white;
 }

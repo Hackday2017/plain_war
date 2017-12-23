@@ -18,29 +18,35 @@
 		<div id="begin">
 			<div id="begin_btn" type="button"></div>
 			<div id="score_btn" type="button"></div>
-      <div id="login_btn" type="button">登录 / 注册</div>
+      <!--<div id="login_btn" type="button">登录 / 注册</div>-->
     </div>
 		<div id="pause">
       <div id="pause_btn" type="button"></div>
       <div class="filter"></div>
     </div>
     <div class="pauseicon" onclick="clickPauseIcon()"></div>
-    <div id="info-wrapper">
-      <div class="filter"></div>
-      <div id="info">
-
-        <div class="totalicon"></div>
-        <div id="endScroe"></div>
-        <div id="again_btn"></div>
-        <div id="update_score" ></div>
-      </div>
-    </div>
-
 		<!--<div id="score"></div>-->
 		<div id="scorearea">
 			<img id="scoretexticon" src="http://localhost/plane_war/public/static/plane_war/img/scoreicon1.png">
 			<!--<div id="scoretext"></div>-->
 			<a id="scoretext"></a>
+		</div>
+	</div>
+	<div id="info-wrapper">
+		<div class="filter" style="opacity: 0"></div>
+		<div id="info">
+			<div id="endScroe"></div>
+			<form name="lform" class="form">
+				<ul>
+					<li>
+						<input name="cardno"><br/>
+					</li>
+				</ul>
+
+			</form>
+			<div id="againgame"></div>
+			<div id="again_btn"></div>
+			<div id="update_score" ></div>
 		</div>
 	</div>
 </body>
