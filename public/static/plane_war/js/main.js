@@ -248,6 +248,7 @@ onload = function(){
     var E = e||event;
     game.scores = 0;
     game.planeSpeed = [6,5,4,3];
+    game.planeDensity=[20,200,600,1000],
     document.getElementById("scoretext").innerHTML = "：" + game.scores;
     begin.style.display = "none";
     info.style.display = "none";
