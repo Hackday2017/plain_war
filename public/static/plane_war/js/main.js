@@ -241,12 +241,13 @@ onload = function(){
     var container = document.getElementById("container");
     var p =document.getElementsByTagName("p");
     var t;
-    // for(t=0;t<p.length;t++){
-    //   container.removeChild(p[0]);
-    // }
+    for(t=0;t<p.length;t++){
+      container.removeChild(p[0]);
+    }
 
     var E = e||event;
     game.scores = 0;
+    game.planeSpeed = [6,5,4,3];
     document.getElementById("scoretext").innerHTML = "：" + game.scores;
     begin.style.display = "none";
     info.style.display = "none";
