@@ -4,6 +4,7 @@
  */
 var planeStatus = {
   isPause : false,
+	music : false
 }
 //飞机类
 function Plane(){
@@ -164,4 +165,23 @@ function clickPauseIcon() {
   pause.style.display = "block";
   game.pause();
   planeStatus.isPause = !planeStatus.isPause;
+}
+
+var url1="url(\"http://localhost/plane_war/public/static/plane_war/img/musicoff.png\") center";
+var url2="url(\"http://localhost/plane_war/public/static/plane_war/img/musicon.png\") center";
+
+function clickMusicIcon() {
+	var music = document.getElementById("music");
+	if (planeStatus.music == true) { // 播放状态
+    $(".musicicon").eq(0).css("background",url1)
+    $(".musicicon").eq(0).css("background-size","100% 100%")
+    music.pause();
+    planeStatus.music = !planeStatus.music;
+  } else {
+    $(".musicicon").eq(0).css("background",url2)
+    $(".musicicon").eq(0).css("background-size","100% 100%")
+    planeStatus.music = !planeStatus.music;
+    music.play();
+	}
+
 }

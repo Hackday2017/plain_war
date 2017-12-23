@@ -167,23 +167,12 @@ game.run = function(){
 };
 //游戏开始，初始化我机，场景运动开始
 game.begin = function(){
-  if (getCookie("isLogin") == "false" || getCookie("isLogin") == null) {
-    initUserCookie();
-  }
-  // 如果已经登录
-  // if (getCookie("isLogin") == "true"){
-	 //  var form = new FormData();
-	 //  form.append("cardno",getCookie("cardno"));
-	 //  console.log(form);
-	 //  setCookie("nowscore",0);
-  //   setCookie("userrank",getRank());
-  // }
 	var _this =this;
-	if(!_this.myPlane){
-	_this.initMyPlane();
-	}else{
-		_this.myPlane.move();
-	}
+	// if(!_this.myPlane){
+	  _this.initMyPlane();
+	// }else{
+	// 	_this.myPlane.move();
+	// }
 	_this.gameSet = window.setInterval(function(){
 		_this.run();
 	},_this.interval);	
@@ -202,27 +191,22 @@ game.over = function(){
 	//得分统计
 	window.setTimeout(function(){
 		window.clearInterval(_this.gameSet);
+
+    var container = document.getElementById("container");
+    var p =document.getElementsByTagName("p");
+    var t;
+    for(t=0;t<p.length;t++){
+      container.removeChild(p[0]);
+    }
+
 		var info = document.getElementById("info-wrapper"),
         endScroe = document.getElementById("endScroe"),
         update_score = document.getElementById("update_score");
-		setCookie("nowscore",_this.scores*100); // 设置当前分数
-
-    // 先判断是否登录
-    // if (getCookie("isLogin") == "false" || getCookie("isLogin") == null) {
-    //   // 如果未登录，什么都不做，正常显示
-    // } else if (parseInt(getCookie("nowscore")) <= parseInt(getCookie("maxscore"))) { // 判断是否出现高分
-    //   // 如果已登录并且 当前分数没有超过最高分，不显示upload
-    //   update_score.style.display = "none";
-    // } else {  // 上传
-    //   // 已登录，当前分数大于最高分
-    //   update_score.style.display = "none"; // 不显示upload
-    //   updateHighScore(); // 上传分数
-    //   console.log("已登录并且上传高分")
-    //   // update_score.value = "上传分数"
-    // }
-
 		info.style.display = "block";
 		endScroe.innerHTML = _this.scores;
+
+    $("input[ name='name']").eq(0).focus();
+
 	},1500);
 };
 
@@ -235,24 +219,12 @@ onload = function(){
 		  again_btn = document.getElementById("again_btn"),
 	    score_btn = document.getElementById("score_btn"),
 			login_btn = document.getElementById("login_btn"),
+			againgame = document.getElementById("againgame"),
+      info = document.getElementById("info-wrapper"),
       updatescore_btn = document.getElementById("update_score");
   if (getCookie("isLogin") == "false" || getCookie("isLogin") == null) {
     initUserCookie();
   }
-
-	// 如果当前已登录，则不显示 "登录/注册" 按钮
-  // if (getCookie("isLogin") == "true"){
-   //  login_btn.style.display = "none";
-   //  setCookie("userrank",getCookie("userrank"));
-   //  setCookie("nowscore",0);
-  // } else {
-   //  login_btn.style.display = "block";
-  // }
-
-  // 跳转到注册页面
-  // login_btn.onclick = function () {
-  //   window.location.href = "http://localhost/plane_war/public/plane/index/register.html";
-  // };
 
   // 跳转到高分榜页面
 	score_btn.onclick = function () {
@@ -261,12 +233,26 @@ onload = function(){
 
 	// 上传高分
   updatescore_btn.onclick = function () {
-    if (getCookie("isLogin") == "false" || getCookie("isLogin") == null) {
-      window.location.href = "http://localhost/plane_war/public/plane/index/register.html";
-    }else {
       updateHighScore();
+  };
+
+  againgame.onclick = function (e) {
+    var container = document.getElementById("container");
+    var p =document.getElementsByTagName("p");
+    var t;
+    for(t=0;t<p.length;t++){
+      container.removeChild(p[0]);
     }
-    };
+
+    var E = e||event;
+    game.scores = 0;
+    document.getElementById("scoretext").innerHTML = "：" + game.scores;
+    begin.style.display = "none";
+    info.style.display = "none";
+    game.begin();
+    E.stopPropagation();
+    E.cancelBubble = true;
+  }
 
 	begin_btn.onclick = function(e){
 		var E = e||event;

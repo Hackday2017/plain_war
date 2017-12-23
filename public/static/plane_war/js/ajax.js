@@ -56,8 +56,11 @@ function getRank() {
 
 // 上传高分
 function updateHighScore() {
-  var score = getCookie("nowscore");
+  var name = $("input[ name='name' ]").val();
+  var score = game.score;
+  var score = parseInt(document.getElementById("endScroe").innerHTML);
   var form = new FormData();
+  form.append("name",name);
   form.append("score",score);
   $.ajax({
     url : "http://localhost/plane_war/public/plane/index/updatescore",
@@ -68,10 +71,7 @@ function updateHighScore() {
     success:function(data){
       console.log(data);
       if (data.data) {
-        setCookie("maxscore",score);
         alert("上传成功！");
-        // 隐藏上传按钮
-        $("update_score").css("display","none");
       }
     }
   })

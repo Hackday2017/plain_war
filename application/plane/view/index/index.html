@@ -25,10 +25,10 @@
       <div class="filter"></div>
     </div>
     <div class="pauseicon" onclick="clickPauseIcon()"></div>
-		<!--<div id="score"></div>-->
+		<div class="musicicon" onclick="clickMusicIcon()"></div>
+		<audio id="music" src="http://localhost/plane_war/public/static/plane_war/media/bg.mp3"  loop="loop">你的浏览器不支持audio标签。</audio>
 		<div id="scorearea">
 			<img id="scoretexticon" src="http://localhost/plane_war/public/static/plane_war/img/scoreicon1.png">
-			<!--<div id="scoretext"></div>-->
 			<a id="scoretext"></a>
 		</div>
 	</div>
@@ -39,7 +39,7 @@
 			<form name="lform" class="form">
 				<ul>
 					<li>
-						<input name="cardno"><br/>
+						<input name="name" placeholder=" 留下你的姓名"><br/>
 					</li>
 				</ul>
 

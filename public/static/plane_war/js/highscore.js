@@ -18,11 +18,11 @@ $(function () {
     type: "GET",
     success: function (result) {
       // debugger;
+      var num = 0;
       var tr = $(".data");
       var temp = result.data;
       if ( temp.length > 0 ){
         $(".wrapper").css("display","");
-        
         $.each(temp,function (index,item) {
           var items = tr.clone();
           var _index = index;
@@ -40,6 +40,8 @@ $(function () {
             }
           });
           items.insertBefore(tr);
+          num++;
+          if(num==10) return false;
         });
         $(".data").eq(temp.length).css("display","none")
       }
