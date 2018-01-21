@@ -13,6 +13,7 @@ var game = {
 	stage:null,
 	killBossCount:0
 };
+
 //初始化我机
 game.initMyPlane = function(){
 	this.myPlane = new myPlane();
